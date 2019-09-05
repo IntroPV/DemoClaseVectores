@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://theme/demo_theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/ship.png" type="Texture" id=2]
+[ext_resource path="res://presentation/slide04/Ship.gd" type="Script" id=3]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 1 )
+colors = PoolColorArray( 0.218391, 0.218391, 0.218391, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[node name="Asteroids" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 60.0 ]
+}
+
+[node name="Gui" type="Node" parent="."]
+
+[node name="Bg" type="TextureRect" parent="Gui"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 2 )
+expand = true
+
+[node name="title1" type="Label" parent="Gui"]
+margin_right = 800.0
+margin_bottom = 73.0
+theme = ExtResource( 1 )
+text = "Asteroids"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="DemoControls" type="Node2D" parent="."]
+position = Vector2( 0, 60 )
+
+[node name="Ship" type="Sprite" parent="DemoControls"]
+position = Vector2( 150, 164.5 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )

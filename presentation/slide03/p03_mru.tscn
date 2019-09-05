@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://theme/demo_theme.tres" type="Theme" id=1]
+[ext_resource path="res://presentation/slide03/Red.gd" type="Script" id=2]
+[ext_resource path="res://presentation/VisualVector.gd" type="Script" id=3]
+[ext_resource path="res://assets/gray_square.png" type="Texture" id=4]
+[ext_resource path="res://theme/font_label_medium.tres" type="DynamicFont" id=5]
+[ext_resource path="res://presentation/slide03/Green.gd" type="Script" id=6]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 1 )
+colors = PoolColorArray( 0.218391, 0.218391, 0.218391, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[node name="Mru" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 60.0 ]
+}
+
+[node name="Gui" type="Node" parent="."]
+
+[node name="Bg" type="TextureRect" parent="Gui"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 2 )
+expand = true
+
+[node name="title1" type="Label" parent="Gui"]
+margin_top = 10.5886
+margin_right = 800.0
+margin_bottom = 83.5886
+theme = ExtResource( 1 )
+text = "MRU vs MRUV"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="DemoMru" type="Node2D" parent="."]
+position = Vector2( 450, 120 )
+
+[node name="Red" type="Node2D" parent="DemoMru"]
+position = Vector2( -309.726, 184.381 )
+script = ExtResource( 2 )
+
+[node name="Direction" type="Node2D" parent="DemoMru/Red"]
+script = ExtResource( 3 )
+tint = Color( 1, 0.458824, 0.458824, 1 )
+
+[node name="Sprite" type="Sprite" parent="DemoMru/Red"]
+modulate = Color( 1, 0.333333, 0.333333, 1 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="DemoMru/Red"]
+margin_left = -27.4913
+margin_top = -14.9825
+margin_right = 36.5087
+margin_bottom = 20.0175
+custom_fonts/font = ExtResource( 5 )
+text = "MRU"
+
+[node name="Green" type="Node2D" parent="DemoMru"]
+position = Vector2( 157.693, 188.228 )
+script = ExtResource( 6 )
+
+[node name="Direction" type="Node2D" parent="DemoMru/Green"]
+script = ExtResource( 3 )
+tint = Color( 0.45098, 1, 0.498039, 1 )
+
+[node name="Sprite" type="Sprite" parent="DemoMru/Green"]
+modulate = Color( 0.333333, 1, 0.337255, 1 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="DemoMru/Green"]
+margin_left = -32.6135
+margin_top = -13.798
+margin_right = 33.3865
+margin_bottom = 14.202
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "MRUV"
