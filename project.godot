@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "AsteroidUtils",
+"language": "GDScript",
+"path": "res://presentation/slide04/AsteroidUtils.gd"
+}, {
 "base": "Node2D",
 "class": "VisualVector",
 "language": "GDScript",
 "path": "res://presentation/VisualVector.gd"
 } ]
 _global_script_class_icons={
+"AsteroidUtils": "",
 "VisualVector": ""
 }
 
@@ -23,6 +29,10 @@ _global_script_class_icons={
 config/name="PhysicsDemos"
 run/main_scene="res://presentation/Presentation.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+utils="*res://presentation/slide04/AsteroidUtils.gd"
 
 [display]
 

@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://theme/demo_theme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/ship.png" type="Texture" id=2]
 [ext_resource path="res://presentation/slide04/Ship.gd" type="Script" id=3]
+[ext_resource path="res://presentation/slide04/Bullet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/asteroid_01.png" type="Texture" id=5]
+[ext_resource path="res://presentation/slide04/Asteroid.gd" type="Script" id=6]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 1 )
@@ -33,11 +36,26 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="DemoControls" type="Node2D" parent="."]
-position = Vector2( 0, 60 )
+[node name="DemoControls" type="Node" parent="."]
 
 [node name="Ship" type="Sprite" parent="DemoControls"]
 position = Vector2( 150, 164.5 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 script = ExtResource( 3 )
+
+[node name="Position2D" type="Position2D" parent="DemoControls/Ship"]
+position = Vector2( 0.681152, -78.9296 )
+
+[node name="Bullet" parent="DemoControls/Ship/Position2D" instance=ExtResource( 4 )]
+position = Vector2( -0.327667, -0.406189 )
+
+[node name="Asteroid" type="Sprite" parent="DemoControls"]
+position = Vector2( 400, 210 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="DemoControls/Asteroid"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DemoControls/Asteroid/Area2D"]
+polygon = PoolVector2Array( -33.5889, -67.5878, -72.7156, -11.2337, -72.1316, 34.0248, -33.5889, 23.8051, 13.4215, 64.3918, 62.1839, 67.8956, 73.5715, 22.3452, 57.804, -66.4198 )

@@ -1,9 +1,10 @@
 extends Sprite
 
-const MARGIN_EDGE = 8
 const PROPULSION_SPEED = 200
 const ROTATION_SPEED = 2
 const FRICTION = 0.1
+
+onready var bullet_template = preload("res://presentation/slide04/Bullet.tscn")
 
 var direction := Vector2(0, -1)
 var rotation_velocity : float = 0
@@ -29,13 +30,14 @@ func _process(delta):
 		propulsion = PROPULSION_SPEED
 	else:
 		propulsion = 0	
-		
-	if global_position.x < 0:
-		global_position.x = get_viewport_rect().size.x - MARGIN_EDGE
-	elif global_position.x > get_viewport_rect().size.x + MARGIN_EDGE:
-		global_position.x = MARGIN_EDGE
-		
-	if global_position.y < 0:
-		global_position.y = get_viewport_rect().size.y - MARGIN_EDGE
-	elif global_position.y > get_viewport_rect().size.y + MARGIN_EDGE:
-		global_position.y = MARGIN_EDGE
+	
+	if Input.is_action_just_pressed("ui_select"):
+		fire()
+	
+	utils.teleport(self, get_viewport_rect())
+	
+func fire():
+	var bullet:Node2D = bullet_template.instance()
+	bullet.global_position = $Position2D.global_position
+	bullet.fly(direction.rotated(rotation))
+	get_parent().add_child(bullet)

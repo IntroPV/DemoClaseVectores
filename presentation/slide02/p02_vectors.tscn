@@ -8,19 +8,19 @@
 [ext_resource path="res://presentation/slide02/DemoSubstraction.gd" type="Script" id=6]
 [ext_resource path="res://assets/gray_square.png" type="Texture" id=7]
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 1 )
 colors = PoolColorArray( 0.218391, 0.218391, 0.218391, 1 )
 
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0, 0.00246305 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.744141, 0.744141, 0.744141, 1 )
 
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
 
 [node name="IntroVectores" type="Node"]
 __meta__ = {
@@ -33,7 +33,7 @@ __meta__ = {
 anchor_right = 0.512
 anchor_bottom = 1.0
 margin_right = 0.399994
-texture = SubResource( 4 )
+texture = SubResource( 2 )
 expand = true
 
 [node name="Bg2" type="TextureRect" parent="Gui"]
@@ -44,7 +44,7 @@ margin_left = 0.16214
 margin_top = -0.237823
 margin_right = -0.237854
 margin_bottom = 299.762
-texture = SubResource( 2 )
+texture = SubResource( 4 )
 expand = true
 
 [node name="title1" type="Label" parent="Gui"]
@@ -142,4 +142,4 @@ tint = Color( 0.121569, 0.494118, 0.160784, 1 )
 
 [node name="DifferenceVector" type="Node2D" parent="DemoSubstraction"]
 script = ExtResource( 4 )
-tint = Color( 0.505882, 0.0980392, 0.541176, 1 )
+tint = Color( 0.0392157, 0.709804, 0.862745, 1 )
